@@ -1,0 +1,67 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.41.34120.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///f:/non-unity projects/codewars/tiptoethroughthecircles/testcases.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "93073960e66c168f2805cfc4b9ba131597444947017815a809fb0214afaa1a62"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/non-unity projects/codewars/tiptoethroughthecircles/globals.h"
+          },
+          "hashes": {
+            "sha-256": "f3f6657e2d292744ea8e3a75f5d3c7262aa536036d632bcd8f1e5d76c98c61fd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/non-unity projects/codewars/tiptoethroughthecircles/circle.h"
+          },
+          "hashes": {
+            "sha-256": "c53226a0a8f7b03e08e0c5d8b7a9c6171b8964ec7fa31c6476eaa7e3c248ecd7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/non-unity projects/codewars/tiptoethroughthecircles/point.h"
+          },
+          "hashes": {
+            "sha-256": "88055f8381d1ca07c2bc26edeb6707c8f9941a7131d89423ce81f4b82d923b2a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///f:/non-unity projects/codewars/tiptoethroughthecircles/solution1.cpp"
+          },
+          "hashes": {
+            "sha-256": "b9172a3637b869e76843d796796d19c7547363cebbce2d395ea7fbc5c5f40e48"
+          }
+        }
+      ]
+    }
+  ]
+}
