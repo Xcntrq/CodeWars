@@ -13,7 +13,7 @@ static void ShowResult(double result, float scale)
     cout << fixed << setprecision(15) << result << (abs(result - expectation) < _maxError ? " good" : " bad") << endl;
     if (scale != 0)
     {
-        cout << expectation << " needed" << endl;
+        cout << expectation << " needed" << endl << endl;
         Visualizer v(nodes, scale);
     }
 }

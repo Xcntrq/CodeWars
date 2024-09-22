@@ -10,7 +10,7 @@ static vector<Circle> c;
 
 static double expectation;
 
-static int segCount = 12;
+static int segCount = 5;
 static const double _pi = 3.14159265358979323846;
 static const double _inf = 123123;
 static const double _maxError = 1e-8;

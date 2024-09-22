@@ -26,7 +26,30 @@ namespace solution3
             AddPoint(_a, 0);
             ProcessCircles();
             AddPoint(_b, _inf);
+            SolveWithExtraSteps();
+        }
+
+        void SolveWithExtraSteps()
+        {
             _lenght = Solve();
+
+            int i;
+            bool isSolvable;
+            vector<int> path;
+            for (i = _nodes.size() - 1; (_nodes[i]._i != 0) && (_nodes[i]._prev != -1); i = _nodes[i]._prev)
+            {
+                path.push_back(_nodes[i]._i);
+            }
+
+            path.push_back(_nodes[i]._i);
+            isSolvable = (_nodes[i]._i == 0);
+
+            for (int i : path)
+            {
+                cout << i << ", ";
+            }
+
+            cout << isSolvable << endl;
         }
 
         void AddPoint(Point p, double dist)
@@ -90,9 +113,9 @@ namespace solution3
                 const Circle& c = _c[j];
                 vector<bool> iExists;
                 vector<Node> newNodes;
+                double angleStep = 2 * _pi / _segCount;
                 for (int i = 0; i < _segCount; i++)
                 {
-                    double angleStep = 2 * _pi / _segCount;
                     double x = c.ctr.x + c.r * sin(angleStep * i);
                     double y = c.ctr.y + c.r * cos(angleStep * i);
                     Point p(x, y);
@@ -100,7 +123,7 @@ namespace solution3
                     iExists.push_back(!IsPointInsideAnyCircle(p));
                     if (iExists[i])
                     {
-                        Node node(_nodes.size() + newNodes.size(), p, _inf, j);
+                        Node node(_nodes.size() + newNodes.size(), p, _inf, angleStep * i, j);
 
                         if ((i > 0) && iExists[i - 1])
                         {
@@ -211,7 +234,9 @@ namespace solution3
         {
             if ((n1._circleIndex == n2._circleIndex) && (n1._circleIndex != -1))
             {
-                return 2 * _pi / _segCount * _c[n1._circleIndex].r;
+                double a = abs(n1._angle - n2._angle);
+                double min = (2 * _pi - a < a) ? 2 * _pi - a : a;
+                return min * _c[n1._circleIndex].r;
             }
 
             double l1 = n1._x - n2._x;
